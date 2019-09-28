@@ -11,7 +11,7 @@
 
 import UIKit
 
-let loadingThemeColor: UIColor = .gray
+
 typealias SVProgressHUDDismissCompletion = () ->Void
 
 public enum UILoadingViewMaskType: Int {
@@ -42,7 +42,7 @@ public class LoadingView: UIView {
     var foreGroundColor: UIColor?
     var backGroundColor: UIColor?
     var messageTxt: String = ""
-    
+    var loadingThemeColor: UIColor = .gray
     // Declare class instance property
     static let sharedInstance = LoadingView(frame: UIScreen.main.bounds)
     
@@ -220,6 +220,7 @@ public class LoadingView: UIView {
             var rect: CGRect = bounds
             rect.size = sizeOfActivity
             ddIndicatorView = DDIndicator(frame: rect)
+            ddIndicatorView?.loaderColor = loadingThemeColor
            }
          return ddIndicatorView!
     }

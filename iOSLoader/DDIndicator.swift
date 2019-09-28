@@ -12,6 +12,8 @@ private var stage: Int = 0
 
 class DDIndicator: UIView {
     var timer: Timer?
+    var loaderColor: UIColor = .gray
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
@@ -48,13 +50,13 @@ class DDIndicator: UIView {
         let max: Int = 16
         let cycle: Int = currentStage % max
         if cycle < max / 4 {
-            return loadingThemeColor
+            return loaderColor
         }
         else if cycle < max / 4 * 2 {
-            return loadingThemeColor
+            return loaderColor
         }
         else if cycle < max / 4 * 3 {
-            return loadingThemeColor
+            return loaderColor
         }
         else {
            return UIColor(red: 239.0 / 255.0, green: 91.0 / 255.0, blue: 148.0 / 255.0, alpha: CGFloat(alpha))
