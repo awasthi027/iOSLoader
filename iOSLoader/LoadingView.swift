@@ -11,8 +11,7 @@
 
 import UIKit
 
-
-typealias SVProgressHUDDismissCompletion = () ->Void
+public typealias SVProgressHUDDismissCompletion = () ->Void
 
 public enum UILoadingViewMaskType: Int {
     case defaultLoading = 1
@@ -42,7 +41,7 @@ public class LoadingView: UIView {
     var foreGroundColor: UIColor?
     var backGroundColor: UIColor?
     var messageTxt: String = ""
-    var loadingThemeColor: UIColor = .gray
+   public var loadingThemeColor: UIColor = .gray
     // Declare class instance property
     static let sharedInstance = LoadingView(frame: UIScreen.main.bounds)
     
@@ -264,7 +263,7 @@ public class LoadingView: UIView {
       return overlayView!
     }
     
-    class func dismiss() {
+   public class func dismiss() {
         LoadingView.sharedInstance.dismiss(withDelay: 0.0) {  }
     }
     
@@ -276,7 +275,7 @@ public class LoadingView: UIView {
         }
     }
     
-    func dismiss(withDelay delay: TimeInterval, completion: SVProgressHUDDismissCompletion) {
+  public  func dismiss(withDelay delay: TimeInterval, completion: SVProgressHUDDismissCompletion) {
         ddIndicatorView?.stopAnimating()
         weak var weakSelf: LoadingView? = self
         OperationQueue.main.addOperation({() -> Void in
