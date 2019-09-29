@@ -41,7 +41,7 @@ public class LoadingView: UIView {
     var foreGroundColor: UIColor?
     var backGroundColor: UIColor?
     var messageTxt: String = ""
-   public var loadingThemeColor: UIColor = .gray
+    public static var loadingThemeColor: UIColor = .gray
     // Declare class instance property
     static let sharedInstance = LoadingView(frame: UIScreen.main.bounds)
     
@@ -219,7 +219,7 @@ public class LoadingView: UIView {
             var rect: CGRect = bounds
             rect.size = sizeOfActivity
             ddIndicatorView = DDIndicator(frame: rect)
-            ddIndicatorView?.loaderColor = loadingThemeColor
+                ddIndicatorView?.loaderColor = LoadingView.loadingThemeColor
            }
          return ddIndicatorView!
     }
@@ -236,7 +236,7 @@ public class LoadingView: UIView {
             titleLabel?.backgroundColor = .clear
              titleLabel?.textAlignment = .center
              titleLabel?.text = messageTxt
-             titleLabel?.textColor = loadingThemeColor
+            titleLabel?.textColor = LoadingView.loadingThemeColor
             titleLabel?.autoresizingMask = ([.flexibleBottomMargin, .flexibleTopMargin, .flexibleRightMargin, .flexibleLeftMargin])
              titleLabel?.center = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2 + (ddIndicatorView?.frame.size.height)!)
              titleLabel?.isHidden = true
